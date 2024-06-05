@@ -1,0 +1,9 @@
+.text-example {
+    font-weight: 600;
+    line-height: 75%;
+    @include rem-adaptive-font(42, 48, 48, 56, 80);
+}
+
+.text-example {
+    font-family: 'Manrope', sans-serif;
+}

@@ -1,0 +1,75 @@
+@mixin toRem($property, $value) {
+    #{$property}: calc($value / 16) + rem;
+}
+
+@mixin clamp-text($linesCount) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $linesCount;
+    line-clamp: $linesCount;
+    -webkit-box-orient: vertical;
+}
+
+@mixin media-breakpoint-up($name) {
+    @media (min-width: #{map-get($breakpoints, $name)}px) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name) {
+    @media (max-width: #{map-get($breakpoints, $name) - 1}px) {
+        @content;
+    }
+}
+
+@mixin adaptiveHardValues($property, $mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920) {
+    @if $mobile {
+        #{$property}: #{$mobile}px;
+    }
+
+    @if $tablet-768 {
+        @include media-breakpoint-up(md) {
+            #{$property}: #{$tablet-768}px;
+        }
+    }
+
+    @if $desktop-1280 {
+        @include media-breakpoint-up(xl) {
+            #{$property}: #{$desktop-1280}px;
+        }
+    }
+
+    @if $desktop-1440 {
+        @include media-breakpoint-up(xxl) {
+            #{$property}: #{$desktop-1440}px;
+        }
+    }
+
+    @if $desktop-1920 {
+        @include media-breakpoint-up(fhd) {
+                #{$property}: #{$desktop-1920}px;
+        }
+    }
+}
+
+@mixin rem-adaptive-font($mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920) {
+    
+    @include toRem(font-size, $mobile);
+    
+    @include media-breakpoint-up(md) {
+        @include toRem(font-size, $tablet-768);
+    }
+
+    @include media-breakpoint-up(xl) {
+        @include toRem(font-size, $desktop-1280);
+    }
+    
+    @include media-breakpoint-up(xxl) {
+        @include toRem(font-size, $desktop-1440);
+    }
+    
+    @include media-breakpoint-up(fhd) {
+        @include toRem(font-size, $desktop-1920);
+    }
+}

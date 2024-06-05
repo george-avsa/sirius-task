@@ -1,0 +1,35 @@
+.input-text {
+    position: relative;
+    max-width: 339px;
+    width: 100%;
+    
+    input {
+        width: 100%;
+
+        border: 1px solid #ececec;
+        border-radius: 8px;
+        padding: 10px 12px;
+        height: 36px;
+    
+        font-weight: 400;
+        font-size: 12px;
+        color: #79747f;
+    
+        box-sizing: border-box;
+
+        background-color: #ffffff;
+    }
+
+    &--pas-visibility {
+        position: absolute;
+        top: 0;
+        right: 12px;
+
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+
+        background: transparent;
+    }
+}

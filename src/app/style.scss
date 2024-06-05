@@ -1,0 +1,11 @@
+@import "~App/fonts/fonts.scss";
+@import '~App/styles/breakpoints.scss';
+@import '~App/styles/colors.scss';
+@import '~App/styles/reset.scss';
+@import '~App/styles/mixins.scss';
+@import '~App/styles/typography.scss';
+@import '~App/styles/componentStyles.scss';
+
+html {
+    font-family: 'Circe Rounded', 'sans-serif';
+}
