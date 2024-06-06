@@ -1,6 +1,9 @@
-function Checkbox({label}: {label: string}) {
+function Checkbox({label, additionalClass}: {label: string, additionalClass?: string}) {
+
+    const classes = additionalClass ? additionalClass : '';
+
     return (
-        <label className="container">
+        <label className={`container ${classes}`}>
             <input type="checkbox" />
             {label}
             <span className="checkmark"></span>

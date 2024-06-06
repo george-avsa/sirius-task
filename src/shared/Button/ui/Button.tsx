@@ -1,8 +1,11 @@
 function Button({
-    children, fullWidth
-}: {children: string, fullWidth?: boolean}) {
+    children, additionalClass
+}: {children: string, additionalClass?: string}) {
+
+    const clases = additionalClass ? additionalClass : '';
+
     return (
-        <button className="button">
+        <button className={`button ${clases}`}>
             {children}
         </button>
     );

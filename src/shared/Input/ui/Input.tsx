@@ -5,8 +5,10 @@ import EyeHiddenIcon from './../assets/eyeHidden.svg'
 type InputType = 'text' | 'password';
 
 function InputText({
-    placeholder, type
-}: {placeholder: string, type: InputType}) {
+    placeholder, type, additionalClass
+}: {placeholder: string, type: InputType, additionalClass?: string}) {
+
+    const classes = additionalClass ? additionalClass : '';
 
     // local state
     const [typeToShow, setTypeToShow] = useState<InputType>(type === 'password' ? 'password' : 'text');
@@ -16,16 +18,16 @@ function InputText({
     };
 
     return (
-        <div className="input-text">
+        <div className={`input-text ${classes}`}>
             <input type={typeToShow} placeholder={placeholder} />
             {type === 'password' && (
-                <button className="input-text--pas-visibility" onClick={handlePasswordVisibility}>
+                <div className="input-text--pas-visibility" onClick={handlePasswordVisibility}>
                     {typeToShow === 'password' ? (
                         <EyeHiddenIcon></EyeHiddenIcon>
                     ) : (
                         <EyeIcon></EyeIcon>
                     )}
-                </button>
+                </div>
             )}
         </div>
     );

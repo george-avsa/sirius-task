@@ -9,3 +9,14 @@
 html {
     font-family: 'Circe Rounded', 'sans-serif';
 }
+
+.app {
+    display: flex;
+    padding-bottom: 112px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
