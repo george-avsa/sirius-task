@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "allowJs": true,
+      "jsx": "react-jsx",
+      "outDir": "./dist",
+      "strict": true,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "baseUrl": "./",
+      "paths": {
+        "Assets/*": ["src/assets/*"],
+        "Entities/*": ["src/entities/*"],
+        "Features/*": ["src/features/*"],
+        "App/*": ["src/app/*"],
+        "Fonts/*": ["src/fonts/*"],
+        "Pages/*": ["src/pages/*"],
+        "Shared/*": ["src/shared/*"],
+        "Widgets/*": ["src/widgets/*"],
+      }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["./dist"]
+}

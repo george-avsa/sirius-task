@@ -1,0 +1,38 @@
+.schedule {
+    width: 100%;
+    height: 100%;
+    
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 50px 0 32px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__calendar {
+        width: 100%;
+
+        flex-grow: 1;
+
+        margin-top: 27px;
+    }
+
+    &__change-button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 125%;
+        text-align: center;
+        color: #323854;
+
+        background-color: #DECFFF;
+        padding: 10px 93px;
+
+        border-radius: 30px;
+    }
+}

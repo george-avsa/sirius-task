@@ -1,0 +1,6 @@
+.title {
+    font-size: 40px;
+    line-height: 87%;
+    font-weight: 400;
+    @include rem-adaptive-font(28, 32, 36, 40, 40);
+}
