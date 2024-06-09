@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  email String @unique
+  name String?
+  password String
+
+  student Student[]
+
+  @@map("user")
+}
+
+model Student {
+  id String @id @default(cuid())
+  name String
+
+  avatar String
+
+  user User @relation(fields: [userId], references: [id])
+  userId String @map("user_id")
+
+  group Group @relation(fields: [groupId], references: [id])
+  groupId String @map("group_id")
+
+  surname String
+  @@map("student")
+}
+
+model Group {
+  id String @id @default(cuid())
+  student Student[]
+  name String
+
+  lessons Lesson[]
+  @@map("group")
+}
+
+model Lesson {
+  id String @id @default(cuid())
+  name String?
+  canceled Boolean?
+  startsAt DateTime  @default(now()) @map("starts_at")
+  endsAt DateTime  @default(now()) @map("ends_at")
+  meetingLink String?  @default("") @map("meeting_link")
+
+  group Group @relation(fields: [groupId], references: [id])
+  groupId String @map("group_id")
+
+  teacher Teacher @relation(fields: [teacherId], references: [id])
+  teacherId String @map("teacher_id")
+  @@map("lesson")
+}
+
+model Teacher {
+  id String @id @default(cuid())
+  name String
+
+  lessons Lesson[]
+  @@map("teacher")
+}
