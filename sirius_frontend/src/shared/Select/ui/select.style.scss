@@ -1,0 +1,54 @@
+.custom-select {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 10px 14px;
+  width: 253px;
+  height: 36px;
+  
+  background-color: #fff;
+  
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 135%;
+  color: #79747f;
+
+  span {
+    max-width: 200px;
+    @include clamp-text(1);
+  }
+
+  
+  &__dropdown {
+    position: absolute;
+    z-index: 10;
+
+    top: calc(100% + 4px);
+    left: 0;
+    
+    width: 100%;
+    
+    padding: 10px 12px;
+
+    background-color: #fff;
+    border: 1px solid #ececec;
+
+    border-radius: 8px;
+  }
+
+  &__option {
+    cursor: pointer;
+
+    padding: 8px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ececec;
+    }
+  }
+
+}

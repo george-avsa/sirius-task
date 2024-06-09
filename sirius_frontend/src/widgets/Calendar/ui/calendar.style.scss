@@ -90,29 +90,9 @@
 
     &__lessons {
         width: 100%;
-        column-gap: 2px;
+        
         max-height: 70px;
 
         overflow-x: scroll;
-    }
-}
-
-.lesson {
-    width: 100%;
-    min-height: 34px;
-
-    background-color: #D7F0D6;
-    border: 0.5px solid #BBE7B9;
-
-    display: flex;
-    
-    border-radius: 2px;
-
-    &__info {
-        flex-grow: 1;
-    }
-
-    &__wallet {
-        color: #E12828;
     }
 }

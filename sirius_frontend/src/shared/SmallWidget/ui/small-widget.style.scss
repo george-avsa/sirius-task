@@ -1,0 +1,30 @@
+.small-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 16px;
+
+    &__title {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 100%;
+        color: #323854;
+
+
+        max-width: 92px;
+    }
+
+    &__icon {
+        align-self: flex-end;
+
+        border-radius: 12px;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

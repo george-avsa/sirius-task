@@ -11,14 +11,24 @@ type InputTextType = {
     value: string, 
     id: string,
     handleChange: (e: React.FormEvent<HTMLInputElement>) => void,
+    handleBlur?: (e: React.FormEvent<HTMLInputElement>) => void,
     error?: string | null,
 }
 
 function InputText({
-    placeholder, type, additionalClass, value, id, handleChange, error
+    id, 
+    type, 
+    value, 
+    error, 
+    placeholder, 
+    handleBlur,
+    handleChange, 
+    additionalClass, 
 }: InputTextType) {
 
-    const classes = additionalClass ? additionalClass : '';
+    let classes = additionalClass ? [additionalClass] : [''];
+
+    error && classes.push('input-text--error');
 
     // local state
     const [typeToShow, setTypeToShow] = useState<InputType>(type === 'password' ? 'password' : 'text');
@@ -28,8 +38,15 @@ function InputText({
     };
 
     return (
-        <div className={`input-text input-text--error ${classes}`}>
-            <input type={typeToShow} placeholder={placeholder} value={value} id={id} onChange={handleChange} />
+        <div className={`input-text ${classes.join(' ')}`}>
+            <input 
+                id={id} 
+                value={value} 
+                type={typeToShow} 
+                placeholder={placeholder} 
+                onChange={handleChange} 
+                onBlur={handleBlur}
+            />
             {type === 'password' && (
                 <div className="input-text--pas-visibility" onClick={handlePasswordVisibility}>
                     {typeToShow === 'password' ? (

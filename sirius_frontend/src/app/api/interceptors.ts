@@ -41,6 +41,7 @@ axiosWithAuth.interceptors.response.use(
             } catch(error) {
                 if (errorCatch(error) === 'jwt expired') {
                     removeFromStorage(); 
+                    throw new Error('Failed to get new access token');
                 }
             }
         } 

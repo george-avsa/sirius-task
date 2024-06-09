@@ -3,7 +3,9 @@ import ArrowIcon from './../assets/arrow.svg';
 function Icon({
     image,
     arrow,
-    notifications
+    notifications,
+    additionalClass,
+    handleIconClick,
 }: {
     image: {
         type: 'img' | 'svg',
@@ -11,12 +13,14 @@ function Icon({
     },
     arrow?: boolean,
     notifications?: number,
+    additionalClass?: string,
+    handleIconClick?: (e: React.MouseEvent<HTMLDivElement>) => void,
 }) {
-    console.log(image);
 
+    const classes = additionalClass ? additionalClass : '';
 
     return (
-        <div className="icon-wrapper">
+        <div className={`icon-wrapper ${classes}`} onClick={handleIconClick}>
             <div className="icon">
                 {(image.type === 'img') ? (
                     <div className='icon__image'>

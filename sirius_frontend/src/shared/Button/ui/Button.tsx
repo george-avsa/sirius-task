@@ -1,11 +1,15 @@
 function Button({
-    children, additionalClass
-}: {children: string, additionalClass?: string}) {
+    children, additionalClass, handleClick
+}: {
+    children: string, 
+    additionalClass?: string,
+    handleClick?: (e: React.FormEvent<HTMLButtonElement>) => void,
+}) {
 
     const clases = additionalClass ? additionalClass : '';
 
     return (
-        <button className={`button ${clases}`}>
+        <button className={`button ${clases}`} onClick={handleClick}>
             {children}
         </button>
     );

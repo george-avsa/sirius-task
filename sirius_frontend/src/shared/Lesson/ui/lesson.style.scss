@@ -1,0 +1,51 @@
+.lesson {
+    width: 100%;
+    min-height: 34px;
+
+    background-color: #D7F0D6;
+    border: 0.5px solid #BBE7B9;
+
+    padding: 4px;
+
+    display: flex;
+    
+    border-radius: 2px;
+
+    &__info {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__info {
+        flex-grow: 1;
+    }
+
+    &__wallet {
+        color: #E12828;
+    }
+
+    &:not(:first-child) {
+        margin-top: 2px;
+    }
+
+    &--past {
+        background-color: #fff;
+    }
+
+    &__time-interval {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 135%;
+        color: #323854;
+    }
+
+    &__name {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 80%;
+        color: #323854;
+    }
+}

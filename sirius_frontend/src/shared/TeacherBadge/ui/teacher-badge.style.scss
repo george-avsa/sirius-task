@@ -1,0 +1,18 @@
+.teacher-badge {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+
+    svg {
+        margin-top: -2px;
+    }
+
+    &__name {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 100%;
+        color: #323854;
+
+        margin-left: 2px;
+    }
+}
