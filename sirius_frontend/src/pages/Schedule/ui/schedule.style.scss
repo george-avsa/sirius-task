@@ -13,6 +13,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+        }
     }
 
     &__calendar {
@@ -34,5 +38,16 @@
         padding: 10px 93px;
 
         border-radius: 30px;
+
+        @include media-breakpoint-down(md) {
+            order: 1;
+        }
+    }
+
+    .custom-select {
+        @include media-breakpoint-down(md) {
+            order: 2;
+            margin-top: 12px;
+        }
     }
 }

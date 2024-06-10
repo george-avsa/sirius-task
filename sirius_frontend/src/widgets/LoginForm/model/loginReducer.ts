@@ -68,7 +68,7 @@ export const loginAuth = createAsyncThunk<AuthResponseData, void, {state: RootSt
             email: loginForm.email.value,
             password: loginForm.password.value,
         }
-        const response = await axiosClassic.post<AuthResponseData>('http://localhost:4200/api/auth/login', body);
+        const response = await axiosClassic.post<AuthResponseData>('http://3073383-ca55064.twc1.net:90/api/auth/login', body);
         const {accessToken} = response.data;
         if (response.status === 200) {
             dispatch(setUser(response.data.user));

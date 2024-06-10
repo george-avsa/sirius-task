@@ -22,7 +22,7 @@ const initialState: StudentSlice = {
 export const fetchStudents = createAsyncThunk<Student[], string, {state: RootState }>(
     'students/fetchByUserId',
     async (userId) => {
-        const response = await axiosWithAuth.get<Student[]>(`http://localhost:4200/api/student/${userId}`);
+        const response = await axiosWithAuth.get<Student[]>(`http://3073383-ca55064.twc1.net:90/api/student/${userId}`);
         return response.data;
     },
 )

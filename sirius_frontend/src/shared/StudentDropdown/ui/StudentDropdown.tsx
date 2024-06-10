@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { AppDispatch } from 'App/store';
 import { setActiveUser } from 'Entities/Students/store/students.store';
 import { authService } from 'App/api/auth.service';
+import { setIsLoadingLessons } from 'Entities/Lesson/store/lesson.store';
+import { setIsLoadingStats } from 'Pages/Main/model/stats.store';
+import { setFilter } from 'Entities/Filter/store/filter.store';
 
 function StudentDropdown() {
 
@@ -21,7 +24,10 @@ function StudentDropdown() {
         const element = e.currentTarget as HTMLDivElement;
         const id = element.getAttribute('data-id');
         if (id) {
+            dispatch(setIsLoadingLessons());
+            dispatch(setIsLoadingStats());
             dispatch(setActiveUser(id));
+            dispatch(setFilter(''));
         }
     }
             
@@ -45,7 +51,9 @@ function StudentDropdown() {
                         key={student.id}
                         data-id={student.id}
                     >
-                    <div className="student-dropdown__student-avatar"></div>
+                    <div className="student-dropdown__student-avatar">
+                        <img src={`/avatars/${student.avatar}`} alt="" />
+                    </div>
                     <div className="student-dropdown__info">
                         <span className="student-dropdown__name">
                             {student.name}

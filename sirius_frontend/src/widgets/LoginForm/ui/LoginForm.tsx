@@ -63,7 +63,7 @@ function LoginForm() {
     }
 
     const handleExampleClick = async () => {
-        const res = await axiosWithAuth.get('http://localhost:4200/api/lesson/29ea17a5-e33f-4a8f-8ed7-4a67479b6cbc/2024-06-07T14:51:33.094Z')
+        const res = await axiosWithAuth.get('http://3073383-ca55064.twc1.net:90/api/lesson/29ea17a5-e33f-4a8f-8ed7-4a67479b6cbc/2024-06-07T14:51:33.094Z')
     }
 
     const handleExample2Click = async () => {

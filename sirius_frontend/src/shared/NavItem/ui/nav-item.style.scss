@@ -26,6 +26,8 @@
 
             margin-top: 2px;
             margin-left: 8px;
+
+            text-decoration: none;
         }
 
         svg {
@@ -63,6 +65,16 @@
         }
     }
 
+    &--not-allowed {
+        cursor: not-allowed;
+        
+        * {
+            cursor: not-allowed;
+        }
+    } 
 
+}
 
+.nav-item-link {
+    text-decoration: none;
 }

@@ -6,6 +6,7 @@ import { studentReducer } from "Entities/Students/store/students.store";
 import { userReducer } from "Entities/User/store/user.store";
 import { statsReducer } from "Pages/Main/model/stats.store";
 import { servicesReducer } from "Widgets/LoginForm/model/loginReducer";
+import { menuItemsReducer } from "Widgets/Navigation/store/menuItems";
 
 const rootReducer = {
     loginForm: servicesReducer,
@@ -15,10 +16,15 @@ const rootReducer = {
     schedule: scheduleReducer,
     filter: filterReducer,
     stats: statsReducer,
+    menuItems: menuItemsReducer,
 }
 
 export const store = configureStore({
     reducer: rootReducer,
+    // жалуется на хранение svg в сторе, по факту это stirng
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false  
+    }),
 });
 
 

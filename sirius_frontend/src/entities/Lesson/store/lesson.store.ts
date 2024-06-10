@@ -13,11 +13,13 @@ export type Lesson = {
 }
 
 type LessonSlice = {
+    isLoading: boolean,
     date: string,
     lessons: Lesson[],
 } 
 
 const initialState: LessonSlice = {
+    isLoading: true,
     date: new Date(2024, 5, 1).toISOString(),
     lessons: [],
 }
@@ -26,7 +28,8 @@ export const fetchLessonByMonth = createAsyncThunk<Lesson[], string, {state: Roo
     'lessons/fetchByMonth',
     async (studentId, {getState}) => {
         const {lesson} = getState();
-        const response = await axiosWithAuth.get<Lesson[]>(`http://localhost:4200/api/lesson/${studentId}/${lesson.date}`);
+        const response = await axiosWithAuth.get<Lesson[]>(`http://3073383-ca55064.twc1.net:90/api/lesson/${studentId}/${lesson.date}`);
+        
         return response.data;
     },
 )
@@ -40,6 +43,7 @@ const lessonSlice = createSlice({
             const date = new Date(prevDate.getFullYear(), prevDate.getMonth()+1, 1);
             return {
                 ...state,
+                isLoading: true,
                 date: date.toISOString(),
             }
         },
@@ -48,15 +52,24 @@ const lessonSlice = createSlice({
             const date = new Date(prevDate.getFullYear(), prevDate.getMonth()-1, 1);
             return {
                 ...state,
+                isLoading: true,
                 date: date.toISOString(),
             }
         },
         setTodayDate(state) {
             const now = new Date();
             const nowDate = new Date(now.getFullYear(), now.getMonth(), 1);
+            const prevDate = new Date(state.date);
             return {
                 ...state,
+                isLoading: nowDate.toISOString() !== prevDate.toISOString(),
                 date: nowDate.toISOString(),
+            }
+        },
+        setIsLoadingLessons(state) {
+            return {
+                ...state,
+                isLoading:true,
             }
         }
     },
@@ -65,6 +78,7 @@ const lessonSlice = createSlice({
             .addCase(fetchLessonByMonth.fulfilled, (state, {payload}) => {
                 return {
                     ...state,
+                    isLoading: false,
                     lessons: [...payload],
                 }
             })
@@ -72,5 +86,5 @@ const lessonSlice = createSlice({
 })
 
 
-export const {decrementDate, incrementDate, setTodayDate} = lessonSlice.actions;
+export const {decrementDate, incrementDate, setTodayDate, setIsLoadingLessons} = lessonSlice.actions;
 export const lessonReducer = lessonSlice.reducer;

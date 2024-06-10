@@ -15,11 +15,13 @@ function Schedule() {
 
     const lessonState = useSelector((state: RootState) => state.lesson);
 
+    const activeMonth = useSelector((state: RootState) => state.lesson.date);
+
     useEffect(() => {
         if (activeStudent) {
             dispatch(fetchLessonByMonth(activeStudent));
         }
-    }, [activeStudent]);
+    }, [activeStudent, activeMonth]);
 
     useEffect(() => {
         dispatch(generateGrid({

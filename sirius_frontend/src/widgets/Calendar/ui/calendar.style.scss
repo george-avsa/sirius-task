@@ -1,4 +1,6 @@
 .calendar {
+    position: relative;
+    
     width: 100%;
     height: 100%;
 
@@ -11,6 +13,11 @@
 
         display: flex;
         align-items: center;
+
+        @include media-breakpoint-down(xl) {
+            flex-direction: column;
+            height: auto;
+        }
     }
 
     &__buttons {
@@ -41,6 +48,10 @@
         grid-template-columns: repeat(7, 1fr);
 
         border-bottom: 1px solid #C8C5CD;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
 
     &__grid {
@@ -51,9 +62,15 @@
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(5, 1fr);
         gap: 1px;
-
+        
         background-color: #ECECEC;
         border: 1px solid #ECECEC;
+        
+        @include media-breakpoint-down(md) {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: unset!important;
+            margin-top: 20px;
+        }
     }
 }
 
@@ -94,5 +111,15 @@
         max-height: 70px;
 
         overflow-x: scroll;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 16px;
+        }
+    }
+
+    &--empty {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
 }

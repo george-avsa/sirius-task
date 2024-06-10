@@ -3,6 +3,8 @@
     top: calc(100% + 13px);
     right: 0;
 
+    z-index: 105;
+
     background-color: #fff;
 
     border: 1px solid #7362bc;
@@ -41,6 +43,14 @@
         border-radius: 100px;
         width: 32px;
         height: 32px;
+
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &__info {

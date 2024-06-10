@@ -7,4 +7,10 @@
         position: absolute;
         z-index: -1;
     }
+
+    &__back {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
 }

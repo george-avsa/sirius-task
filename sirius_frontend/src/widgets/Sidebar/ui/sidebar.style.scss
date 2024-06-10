@@ -4,6 +4,10 @@
 
     box-sizing: border-box;
 
+    @include media-breakpoint-down(xl) {
+        display: none;
+    }
+
     &__logo {
         margin: 0 auto 16px auto;
     }
