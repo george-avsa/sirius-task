@@ -12,8 +12,8 @@ export const getAccessToken = () => {
 
 export const saveTokenStorage = (accessToken: string) => {
     Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-        domain: 'cs71915.tmweb.ru',
-        sameSite: 'none',
+        domain: 'localhost',
+        sameSite: 'lax',
         expires: 1,
     });
 };
