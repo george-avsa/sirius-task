@@ -14,7 +14,7 @@
 
 ### Запуск
 
-1. Склонировать репозиторий
+1. Склонировать репозиторий  
 `git clone https://github.com/george-avsa/sirius-task`
 2. Перейти в директорию frontend  
 `cd sirius-task/sirius_frontend`
