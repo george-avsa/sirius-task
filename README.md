@@ -12,6 +12,19 @@
 
 # Frontend
 
+### Запуск
+
+1. Склонировать репозиторий
+`git clone https://github.com/george-avsa/sirius-task`
+2. Перейти в директорию frontend  
+`cd sirius-task/sirius_frontend`
+3. Установить зависимости
+`npm i`
+4. Запустить проект
+`npm start`
+
+p.s. бекенд задеплоен, разворачивать локально не нужно
+
 ### Стек
 Использовал React, Redux (RTK), Typescript, Webpack, SCSS, БЭМ и fsd-архитектуру.
 
